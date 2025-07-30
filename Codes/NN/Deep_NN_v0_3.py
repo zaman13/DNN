@@ -20,8 +20,8 @@ import matplotlib.pyplot as py
 from tqdm import tqdm
 
 from LR_dataload import * 
-import preprocess_v0_1 as pp
-import preprocess_csv_v0_1 as ppc
+
+import preprocess_v0_2 as pp
 
 py.close('all')
 #==============================================================================
@@ -35,20 +35,20 @@ print('Loading and pre-processing data..')
 
 
 # path = '/Users/palankerlab/Documents/ML_Datasets/'
-# data_folder = 'cat_dog'
-# N_test = 400
-# N_train = 1400
-# reNx = 64
-# reNy = 64
-# train_x, train_y, test_x, test_y = pp.pre_process_dataset(path, data_folder, reNx, reNy, N_train, N_test)
+path = '/home/asif/pCloudDrive/ML_Datasets/'
+data_folder = 'cat_dog'
+N_test = 400
+N_train = 1400
+reNx = 64
+reNy = 64
+train_x, train_y, test_x, test_y = pp.preprocess_img(path, data_folder, reNx, reNy, N_train, N_test)
 
 
-path = 'datasets/'
-fname = 'WineQT.csv'
-
-split_ratio = 0.3
-th1 = 5.5
-train_x, train_y, test_x, test_y  = ppc.preprocess_csv(path, fname, split_ratio, th1)
+# path = 'datasets/'
+# fname = 'WineQT.csv'
+# split_ratio = 0.3
+# th1 = 5.5
+# train_x, train_y, test_x, test_y  = pp.preprocess_csv(path, fname, split_ratio, th1)
 
 print('done\n')
 
@@ -85,7 +85,7 @@ act_fun = [0,1,2,1,3]
 # Note: act_fun[0] should never be called
 
 # Gradient descent parameters
-N_iter = 35000           # number of iterations 
+N_iter = 3500           # number of iterations 
 learning_rate = 0.005   # learning rate
 
 
